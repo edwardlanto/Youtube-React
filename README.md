@@ -12,3 +12,4 @@ A react application that works along Youtube API to provide a quick search exper
 * Passing props from parent to children and accessing accordingly
 * Conditional statement when loading video
 * Using lodash library's debounce function to run function every 300ms
+# youtube-react
