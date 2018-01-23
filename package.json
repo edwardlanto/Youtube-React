@@ -10,7 +10,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "build": "react-scripts build",
-    "postinstall": "webpack -p"
+    "postinstall": "webpack --config ./webpack.config.js"
   },
   "author": "",
   "license": "ISC",
