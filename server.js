@@ -1,13 +1,23 @@
-const express = require('express')
+const express = require('express');
+const bodyParser = require('body-parser');
 const path = require('path');
-const port = process.env.PORT || 8080;
+
 const app = express();
+const PORT = process.env.PORT || 3000;
 
-app.use(express.static(__dirname));
+const publicPath = express.static(path.join(__dirname, './build'));
 
-app.get('*', (req,res) =>{
-    res.sendFile(path.resolve(__dirname, 'public/index.html'))
+app.use('/', publicPath);
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
-app.listen(port);
-console.log('started');
+app.listen(PORT, () => {
+  console.log(`App started on port ${PORT}`);
+});
+
+module.exports = app;
